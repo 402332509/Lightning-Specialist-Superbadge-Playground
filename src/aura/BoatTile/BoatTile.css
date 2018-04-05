@@ -24,10 +24,5 @@
     padding: 6px 8px;
 }
 .THIS .selected {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    height: 220px;
-    padding: 1px !important;
     border: 3px solid rgb(0, 112, 210);
 }

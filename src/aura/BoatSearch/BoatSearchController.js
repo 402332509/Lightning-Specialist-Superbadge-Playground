@@ -5,6 +5,6 @@
         console.log(formData);
         // component.set("boatTypeId", formData.boatTypeId);
         var boatSearchResults = component.find("sbr");
-        boatSearchResults.doSearch(formData.boatTypeId);
+        boatSearchResults.search(formData.boatTypeId);
     }
 })
