@@ -3,7 +3,7 @@
     <aura:attribute name="selectedType" type="String" default=""/>
     <aura:attribute name="hideNewButton" type="Boolean" default="true"/>
     <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
-    <aura:registerEvent name="FormSubmit" type="c:FormSubmit"/>
+    <aura:registerEvent name="formSubmit" type="c:FormSubmit"/>
     
     <lightning:layout horizontalAlign="center" verticalAlign="end">
         <lightning:layoutItem padding="around-small">

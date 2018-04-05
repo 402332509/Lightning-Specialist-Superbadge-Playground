@@ -16,8 +16,8 @@
 	},
     onFormSubmit : function(component, event, helper) {
         var selectType = component.get("v.selectedType");
-        var appEvent =  $A.get("e.c:FormSubmit");
-        appEvent.setParams({"formData" : selectType});
+        var appEvent =  component.getEvent("formSubmit");
+        appEvent.setParams({"formData" : {boatTypeId:selectType}});
         appEvent.fire();
 	},
     create : function(component, event, helper) {

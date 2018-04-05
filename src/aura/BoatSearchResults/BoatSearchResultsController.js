@@ -3,9 +3,10 @@
 		
 	},
     doSearch : function(component, event, helper){
-        var formData = event.getParam("formData");
-        console.log('formData:');
-        console.log(formData);
-        helper.onSearch(component,formData);
+        var params = event.getParam("arguments");
+        if(params){
+            var boatTypeId = params.boatTypeId;
+            helper.onSearch(component,boatTypeId);
+        }
     }
 })

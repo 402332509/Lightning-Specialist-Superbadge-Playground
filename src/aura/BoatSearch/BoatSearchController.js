@@ -1,8 +1,10 @@
 ({
-	doSearch : function(component, event, helper){
+	onFormSubmit : function(component, event, helper){
         var formData = event.getParam("formData");
         console.log('formData:');
         console.log(formData);
-        helper.onSearch(component,formData);
+        // component.set("boatTypeId", formData.boatTypeId);
+        var boatSearchResults = component.find("sbr");
+        boatSearchResults.doSearch(formData.boatTypeId);
     }
 })
