@@ -1,0 +1,14 @@
+{
+    "folders": [
+        {
+            "path": "/Users/harryliu/Documents/workspace/ef/playground", 
+            "folder_exclude_patterns": [
+                ".templates"
+            ], 
+            "file_exclude_patterns": [
+                "*.*-meta.xml", 
+                "*.sublime-project"
+            ]
+        }
+    ]
+}

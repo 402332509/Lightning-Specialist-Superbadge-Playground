@@ -1,0 +1,20 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="BoatSearchResults">
+	<aura:attribute name="boatList" type="Boat__c[]" default="[]"/>
+    <aura:attribute name="boatTypeId" type="String" default=""/>
+    <aura:attribute name="noBoatsFound" type="Boolean" default="false"/>
+    <aura:handler event="c:FormSubmit" action="{!c.doSearch}"/>
+    <lightning:layout multipleRows="true" horizontalAlign="space ">
+        <aura:if isTrue="{!v.noBoatsFound}">
+            <lightning:layoutItem class="slds-align_absolute-center">
+                'No boats found'
+            </lightning:layoutItem>
+        	<aura:set attribute="else">
+                <aura:iteration items="{!v.boatList}" var="boat">
+                    <lightning:layoutItem padding="around-small">
+                        <c:BoatTile boat="{!boat}"/>
+                    </lightning:layoutItem>
+                </aura:iteration>
+            </aura:set>
+        </aura:if>
+    </lightning:layout>
+</aura:component>

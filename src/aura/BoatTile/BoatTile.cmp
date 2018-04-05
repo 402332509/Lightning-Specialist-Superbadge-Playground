@@ -1,0 +1,11 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="boat" type="Boat__c[]" default="{'sObjectType':'Boat__c', 'Name':'Boat123'}" />
+    <aura:attribute name="selected" type="Boolean" default="false"/>
+    <lightning:button class="{!v.selected?'tile selected':'tile'}">
+        <div style="{! 'background-image:url(\'' + v.boat.Picture__c + '\'); '}" class="innertile">
+            <div class="lower-third">
+                <h1 class="slds-truncate">{!v.boat.Name}</h1>
+            </div>
+        </div>
+    </lightning:button>
+</aura:component>

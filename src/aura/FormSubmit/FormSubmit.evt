@@ -1,0 +1,3 @@
+<aura:event type="application" description="Boat Event">
+    <aura:attribute name="formData" type="Object"/>
+</aura:event>
