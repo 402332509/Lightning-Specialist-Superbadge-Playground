@@ -1,0 +1,4 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="boat" type="Boat__c"/>
+    
+</aura:component>

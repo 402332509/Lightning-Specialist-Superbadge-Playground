@@ -1,9 +1,11 @@
 <aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId">
     <aura:attribute name="boat" type="Boat__c"/>
-    <aura:attribute name="Id" type="Id"/>
+    <aura:attribute name="Id" type="String" default="addreviewtab"/>
     <aura:attribute name="recordError" type="String"/>
+    <aura:attribute name="selTabId" type="Id"/>
 
     <aura:handler event="c:BoatSelected" action="{!c.onBoatSelected}"/>
+    <aura:handler name="BoatReviewAdded" event="c:BoatReviewAdded" action="{!c.onBoatReviewAdded}" />
 
     <force:recordData aura:id="service"
                   recordId="{!v.Id}"                          
@@ -13,15 +15,14 @@
                   />
 
     <!-- <aura:if isTrue="{!v.boat}"> -->
-        <lightning:tabset>
-            <lightning:tab label="Details">
-                <c:BoatDetail boat="{!v.boat}"/>
+        <lightning:tabset aura:id="details" variant="scoped" selectedTabId="{!v.selectedTabId}">
+            <lightning:tab label="DETAILS">
+                <c:BoatDetail boat="{!v.boat}" />
             </lightning:tab>
-            <lightning:tab label="Reviews">
-                Reviews
+            <lightning:tab label="REVIEWS" id="boatreviewtab">
             </lightning:tab>
-            <lightning:tab label="Add Review">
-                Add Review
+            <lightning:tab label="ADD REVIEW">
+                <c:AddBoatReview boat="{!v.boat}" />
             </lightning:tab>
         </lightning:tabset>
     <!-- </aura:if> -->

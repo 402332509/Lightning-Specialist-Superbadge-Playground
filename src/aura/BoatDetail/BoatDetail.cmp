@@ -1,4 +1,4 @@
-<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
+<aura:component implements="flexipage:availableForAllPageTypes">
     <aura:attribute name="boat" type="Boat__c"/>
     <!-- <aura:handler name="init" value="{!this}" action="{!c.doInit}"/> -->
 
@@ -9,7 +9,6 @@
 
         <aura:set attribute="actions">
             <aura:if isTrue="{!not(empty(v.boat))}">
-
                 <lightning:button label="Full Details" onclick="{!c.onFullDetails}"/>
             </aura:if>
         </aura:set>
@@ -44,7 +43,5 @@
             </lightning:layoutItem>
         </lightning:layout>
     </lightning:card>
-
-
 
 </aura:component>

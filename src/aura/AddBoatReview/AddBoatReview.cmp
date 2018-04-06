@@ -1,0 +1,41 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+    <aura:attribute name="boat" type="Boat__c" />
+    <aura:attribute name="id" type="Id" />
+    <aura:attribute name="boatReview" type="BoatReview__c"/>
+    <aura:attribute name="recordError" type="String" access="private"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <aura:registerEvent name="boatReviewAdded" type="c:BoatReviewAdded"/>
+
+    <force:recordData aura:id="service"
+                  recordId="{!v.id}"                          
+                  fields="Id,Name,Comment__c,Boat__c"
+                  targetFields="{!v.boatReview}"
+                  recordUpdated="{!c.onRecordUpdated}"
+                  targetError="{!v.recordError}"
+                  />
+
+    <lightning:layout multipleRows="true">
+        <lightning:layoutItem size="12" padding="around-small">
+            <lightning:input name="title" label="Title" value="{!v.boatReview.Name}"/>
+        </lightning:layoutItem>
+
+        <lightning:layoutItem size="12" padding="around-small">
+            <label class="slds-form-element__label" for="input-id-01">Description</label>
+            <lightning:inputRichText value="{!v.boatReview.Comment__c}" disabledCategories="FORMAT_FONT"/>
+        </lightning:layoutItem>
+
+        <lightning:layoutItem size="12" class="slds-align--absolute-center">
+            <lightning:button iconName="utility:save" label="Submit" onclick="{!c.onSave}"/>
+        </lightning:layoutItem>
+    </lightning:layout>
+
+    <aura:if isTrue="{!not(empty(v.recordError))}">
+        <div class="recordError">
+            <ui:message title="Error" severity="error" closable="true">
+                {!v.recordError}
+            </ui:message>
+        </div>
+    </aura:if>
+
+</aura:component>
