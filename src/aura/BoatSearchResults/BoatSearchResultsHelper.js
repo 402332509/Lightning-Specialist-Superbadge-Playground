@@ -8,10 +8,7 @@
             if(component.isValid() && state === "SUCCESS"){
                 console.log('From action variable : ');
                 console.log(response.getReturnValue());
-                if(response.getReturnValue().length===0){
-                }else{
-                    component.set("v.boatList",[].concat(response.getReturnValue()));
-                }
+                component.set("v.boatList",[].concat(response.getReturnValue()));
             }
             else{
                 console.log("Failed with State : " + state);

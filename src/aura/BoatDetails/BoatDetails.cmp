@@ -1,0 +1,38 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+    <aura:attribute name="boat" type="Boat__c"/>
+    <aura:attribute name="Id" type="Id"/>
+    <aura:attribute name="recordError" type="String"/>
+
+    <aura:handler event="c:BoatSelected" action="{!c.onBoatSelected}"/>
+
+    <force:recordData aura:id="service"
+                  recordId="{!v.Id}"                          
+                  fields="Id,Name,Description__c,Price__c,Length__c,Contact__r.Name,Contact__r.Email,Contact__r.HomePhone,BoatType__r.Name,Picture__c"
+                  targetFields="{!v.boat}"
+                  recordUpdated="{!c.onRecordUpdated}"
+                  />
+
+    <!-- <aura:if isTrue="{!v.boat}"> -->
+        <lightning:tabset>
+            <lightning:tab label="Details">
+                <c:BoatDetail boat="{!v.boat}"/>
+            </lightning:tab>
+            <lightning:tab label="Reviews">
+                Reviews
+            </lightning:tab>
+            <lightning:tab label="Add Review">
+                Add Review
+            </lightning:tab>
+        </lightning:tabset>
+    <!-- </aura:if> -->
+            
+    <!-- Display Lightning Data Service errors, if any -->
+    <aura:if isTrue="{!not(empty(v.recordError))}">
+        <div class="recordError">
+            <ui:message title="Error" severity="error" closable="true">
+                {!v.recordError}
+            </ui:message>
+        </div>
+    </aura:if>
+
+</aura:component>
