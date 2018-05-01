@@ -1,0 +1,14 @@
+<aura:component>
+    <aura:attribute name="radioId" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <aura:attribute name="value" type="Boolean" default="false"/>
+    <span class="slds-radio">
+      <!-- <input type="radio" id="radio-3" name="options" value="on" /> -->
+      <ui:inputRadio value="{!v.value}" aura:id="radio" />
+      <label class="slds-radio__label" for="{!v.radioId}">
+        <span class="slds-radio_faux"></span>
+        <span class="slds-form-element__label">Radio Label One</span>
+      </label>
+    </span>
+</aura:component>

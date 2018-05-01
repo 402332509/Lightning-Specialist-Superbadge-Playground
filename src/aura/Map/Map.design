@@ -1,0 +1,4 @@
+<design:component>
+    <design:attribute name="width" label="Width" description="The width of the map as a percentage (100%) or pixels (100px)" />
+    <design:attribute name="height" label="Height" description="The height of the map as a percentage (100%) or pixels (100px)" />
+</design:component>

@@ -1,0 +1,3 @@
+<aura:component extends="c:TestSuperComponent">
+    <aura:set attribute="harry" value="biubiubiu!"/>
+</aura:component>

@@ -2,7 +2,7 @@
     <aura:attribute name="boat" type="Boat__c"/>
     <aura:attribute name="Id" type="String" default="addreviewtab"/>
     <aura:attribute name="recordError" type="String"/>
-    <aura:attribute name="selTabId" type="Id"/>
+    <aura:attribute name="selectedTabId" type="Id"/>
 
     <aura:handler event="c:BoatSelected" action="{!c.onBoatSelected}"/>
     <aura:handler name="BoatReviewAdded" event="c:BoatReviewAdded" action="{!c.onBoatReviewAdded}" />
@@ -20,12 +20,14 @@
                 <c:BoatDetail boat="{!v.boat}" />
             </lightning:tab>
             <lightning:tab label="REVIEWS" id="boatreviewtab">
+                <c:BoatReviews aura:id="boatreviews" boat="{!v.boat}" />
             </lightning:tab>
             <lightning:tab label="ADD REVIEW">
                 <c:AddBoatReview boat="{!v.boat}" />
             </lightning:tab>
         </lightning:tabset>
     <!-- </aura:if> -->
+
             
     <!-- Display Lightning Data Service errors, if any -->
     <aura:if isTrue="{!not(empty(v.recordError))}">

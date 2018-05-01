@@ -1,0 +1,47 @@
+<aura:component implements="flexipage:availableForAllPageTypes" >
+    <aura:attribute name="item" type="Object[]" default="[{a:1,b:2}]"/>
+    <aura:attribute name="radioValue" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.item}" action="{!c.itemsChange}"/>
+
+<!-- 
+    <lightning:button onclick="{!c.cli}"/>
+    <aura:iteration items="{!v.item}" var="it">
+
+        <lightning:input value="{!it.a}"/>
+        <lightning:input value="{!it.b}"/>
+    </aura:iteration> -->
+
+    <li class="slds-item">
+        <lightning:tile  label="Bruce Wayne" href="/bruce.html">
+            <aura:set attribute="media">
+                <lightning:avatar src="/assets/images/avatar1.jpg" fallbackIconName="standard:person_account" alternativeText="Lexee L. Jackson"/>
+                <!-- <span class="slds-avatar" onmouseover="{!c.expandAvatar}" onmouseleave="{!c.resetAvatar}">
+                  <img alt="Person name" src="/_slds/images/themes/lightning_blue/lightning_blue_profile_avatar_96.png" title="User avatar" />
+                </span> -->
+            </aura:set>
+            <ul class="slds-list_horizontal slds-has-dividers_right">
+                <li class="slds-item">Billionaire, Gotham City</li>
+                <li class="slds-item">Dark Knight</li>
+            </ul>
+        </lightning:tile>
+    </li>
+
+    <aura:attribute name="textAreaValue" type="String" default=""/>
+    <lightning:textarea name="myTextArea" value="{!v.textAreaValue}"
+    label="What are you thinking about?" maxlength="30" />
+    <span class="slds-float_right">{!30-v.textAreaValue.length}/30 characters</span>
+
+    <lightning:dynamicIcon type="strength" option="3" alternativeText="Strength: 3"/>
+    <lightning:dynamicIcon type="strength" option="3" alternativeText="Strength: 2"/>
+    <lightning:dynamicIcon type="strength" option="1" alternativeText="Strength: 1"/>
+
+<!-- <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+     <svg aria-hidden="true" class="slds-icon icon-text-email slds-icon--small slds-m-right--x-small">
+           <use xlink:href="{!URLFOR($Resource.ResourceName, '/assets/icons/utility-sprite/svg/symbols.svg#ban)}"></use>
+      </svg>
+      <span id="err_text"></span> -->
+
+
+     <lightning:input type="week" label="Week" name="week" />
+</aura:component>

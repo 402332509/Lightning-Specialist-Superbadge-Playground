@@ -1,0 +1,7 @@
+<aura:component extensible="true">
+    <aura:attribute name="harry" type="String" default="hello world"/>
+    <div>
+        {!v.harry}
+    </div>
+    <c:TestChildComponent/>
+</aura:component>
